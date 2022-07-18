@@ -1,0 +1,19 @@
+{% extends 'AppCoder/padre.html' %}
+{% load static %}
+
+{% block contenido_que_cambia %}
+   <h1>Formulario de profesores</h1>
+    {% if formulario.errors %}
+   <p style="color:red">Hay algo mal en el formulario</p>
+   {% endif %}
+    <form action="{% url 'profeFormulario' %}" method="POST"> {% csrf_token %}
+    
+    <table>
+        {{formulario.as_table}}
+    </table>
+    
+    <p>
+        <input type="submit" value="Enviar">
+    </p>
+   </form>
+{% endblock %}
